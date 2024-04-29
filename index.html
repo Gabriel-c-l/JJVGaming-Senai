@@ -74,7 +74,12 @@
     let numeroMagico;
     let tentativas;
 
+    function limparResposta() {
+      document.getElementById('resultado').innerText = '';
+    }
+
     function selecionarModo(modo) {
+      limparResposta();
       if (modo === 'pvp') {
         document.getElementById('modoSelecao').style.display = 'none';
         document.getElementById('inputNumero').style.display = 'block';
@@ -84,6 +89,7 @@
     }
 
     function iniciarJogo() {
+      limparResposta();
       numeroMagico = parseInt(document.getElementById('numeroInput').value);
       tentativas = 0;
 
@@ -92,6 +98,7 @@
     }
 
     function iniciarJogoPvE() {
+      limparResposta();
       numeroMagico = Math.floor(Math.random() * 100) + 1;
       tentativas = 0;
 
@@ -100,6 +107,7 @@
     }
 
     function verificarChute() {
+      limparResposta();
       const chute = parseInt(document.getElementById('chuteInput').value);
       tentativas++;
 
