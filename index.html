@@ -7,33 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <!-- 
-    colocar modo noturno 
-    adicionar as mudanças do vitao 
-    adicionar dificuldade no script
-
-   --> 
   <div id="container">
     <h1>Número Mágico</h1>
-    <button class="noturno" id="modoNoturnoBtn" onclick="toggleModoNoturno()">🌛</button>
-    <div id="dificuldade">
-        <h2>Selecione uma dificuldade</h2>
-        <div>
-            <button>Fácil</button>
-            <button>Médio</button>
-            <button>Difícil</button>
-        </div>
+    <div>
+      <button class="noturno" id="modoNoturnoBtn" onclick="toggleModoNoturno()">🌛</button>
     </div>
     <div id="modoSelecao">
       <button onclick="selecionarModo('pvp')">PvP</button>
       <button onclick="selecionarModo('pve')">PvE</button>
     </div>
-    <div id="inputNumero" style="display: none;">
-      <input type="number" id="numeroInput" placeholder="Digite o número mágico">
-      <button onclick="iniciarJogo()">Iniciar Jogo</button>
+    <div id="dificuldadeSelecao" style="display: none;">
+      <button onclick="selecionarDificuldade('facil'); ocultarDificuldades()">Fácil</button>
+      <button onclick="selecionarDificuldade('medio'); ocultarDificuldades()">Médio</button>
+      <button onclick="selecionarDificuldade('dificil'); ocultarDificuldades()">Difícil</button>
+    </div>
+    <div id="inputNumeroPvP" style="display: none;">
+      <div class="labels">
+        <label for="numeroInputJogador1">Jogador 1, digite o número mágico:</label>
+      </div>
+      <input type="password" id="numeroInputJogador1" placeholder="Digite um numero">
+      <button onclick="iniciarJogoPvP()">Iniciar Jogo</button>
+    </div>
+    <div id="inputNumeroPvE" style="display: none;">
+      <div class="labels">
+        <label for="numeroInput">Digite o número mágico:</label>
+      </div>
+      <input type="number" id="numeroInput">
+      <button onclick="iniciarJogoPvE()">Iniciar Jogo</button>
     </div>
     <div id="chuteDiv" style="display: none;">
-      <input type="number" id="chuteInput" placeholder="Faça seu chute">
+      <div class="labels">
+        <label for="chuteInput">Faça seu chute:</label>
+      </div>
+      <input type="number" id="chuteInput" placeholder="Digite um numero">
       <button onclick="verificarChute()">Chutar</button>
     </div>
     <p id="resultado"></p>
