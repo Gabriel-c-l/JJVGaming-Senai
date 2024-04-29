@@ -1,28 +1,46 @@
+<!--
+    Fazer um jogo 
+
+    -1 o jogo pvp eu boto um numero e a pessoa ao meu lado adivinha 
+    -2 a maquina inventa um numero e a pessoa tenta adivinhar 
+    -erros o site deve mostrar o quão perto do numero correto ele esta e quantas tentativas ele fez 
+    -acerto aparecer na tela ele conseguiu acertar o numero eeee 
+-->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JJVG</title>
+    <title>JJVGaming</title>
 </head>
 <body>
-  <main> 
-    <h2>Clonar Repositorio</h2>
-    <p>git clone url...</p>
-
-    <h2>comitar alterações</h2>
-    <p>git add .</p>
-    <p>git commit -m "anotações para fazer um comite"</p>
-    <p>git push</p>
-
-    <h2>abrir terminal</h2>
-    <p>control+'</p>
-
-    <h2>Configurar usuario</h2>
-    <p>git config user.name "Name"</p>
-    <p>git config user.email "@gmail.com"</p>
-    
-
-  </main>  
+    <main>
+        <header>
+            <p>JJVGaming apresenta</p>
+            <h1>Joguinho da adivinhação</h1>
+        </header>
+        <section class="pvp">
+            <div class="p1PVP">
+                <label for="numberP1PVP">Adicionar numero</label>
+                <input type="text" id="numberP1PVP">
+                <button onclick="add()">Adicionar</button>
+            </div>
+            <div class="p2PVP">
+                <label for="numberP2PVP">Chute um numero</label>
+                <input type="text" id="numberP2PVP">
+            </div>
+        </section>
+        <section class="pve">
+            <div class="p1PVE">
+                <label for="numberP1PVE">Chute um numero</label>
+                <input type="text" id="numberP1PVE">
+            </div>
+        </section>
+        <section class="respostas">
+            <p class="perto"></p>
+            <p class="acertou"></p>
+        </section>
+    </main>
 </body>
 </html>
