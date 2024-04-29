@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="noturno" id="modoNoturnoBtn" onclick="toggleModoNoturno()">🌛</button>
    <!-- 
     colocar modo noturno 
     adicionar as mudanças do vitao 
@@ -16,10 +15,14 @@
    --> 
   <div id="container">
     <h1>Número Mágico</h1>
+    <button class="noturno" id="modoNoturnoBtn" onclick="toggleModoNoturno()">🌛</button>
     <div id="dificuldade">
-        <button>Fácil</button>
-        <button>Médio</button>
-        <button>Difícil</button>
+        <h2>Selecione uma dificuldade</h2>
+        <div>
+            <button>Fácil</button>
+            <button>Médio</button>
+            <button>Difícil</button>
+        </div>
     </div>
     <div id="modoSelecao">
       <button onclick="selecionarModo('pvp')">PvP</button>

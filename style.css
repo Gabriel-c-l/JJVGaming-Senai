@@ -43,3 +43,28 @@ input {
 h1 {
     margin-bottom: 20px;
 }
+
+body.modo-noturno {
+    background-color: #333;
+    color: #fff;
+}
+
+.modo-noturno #container {
+    background-color: #222;
+    border-color: #555;
+}
+
+.modo-noturno button {
+    background-color: #555;
+    color: #fff;
+}
+
+.modo-noturno button:hover {
+    background-color: #777;
+}
+
+.modo-noturno input {
+    background-color: #444;
+    color: #fff;
+    border-color: #666;
+}
