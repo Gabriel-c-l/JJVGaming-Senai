@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Número Mágico - Jogo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #container {
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    input {
+      padding: 8px;
+      font-size: 16px;
+      margin: 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Número Mágico</h1>
+    <div id="modoSelecao">
+      <button onclick="selecionarModo('pvp')">PvP</button>
+      <button onclick="selecionarModo('pve')">PvE</button>
+    </div>
+    <div id="inputNumero" style="display: none;">
+      <input type="number" id="numeroInput" placeholder="Digite o número mágico">
+      <button onclick="iniciarJogo()">Iniciar Jogo</button>
+    </div>
+    <div id="chuteDiv" style="display: none;">
+      <input type="number" id="chuteInput" placeholder="Faça seu chute">
+      <button onclick="verificarChute()">Chutar</button>
+    </div>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    let numeroMagico;
+    let tentativas;
+
+    function selecionarModo(modo) {
+      if (modo === 'pvp') {
+        document.getElementById('modoSelecao').style.display = 'none';
+        document.getElementById('inputNumero').style.display = 'block';
+      } else if (modo === 'pve') {
+        iniciarJogoPvE();
+      }
+    }
+
+    function iniciarJogo() {
+      numeroMagico = parseInt(document.getElementById('numeroInput').value);
+      tentativas = 0;
+
+      document.getElementById('inputNumero').style.display = 'none';
+      document.getElementById('chuteDiv').style.display = 'block';
+    }
+
+    function iniciarJogoPvE() {
+      numeroMagico = Math.floor(Math.random() * 100) + 1;
+      tentativas = 0;
+
+      document.getElementById('modoSelecao').style.display = 'none';
+      document.getElementById('chuteDiv').style.display = 'block';
+    }
+
+    function verificarChute() {
+      const chute = parseInt(document.getElementById('chuteInput').value);
+      tentativas++;
+
+      if (chute === numeroMagico) {
+        document.getElementById('resultado').innerText = `Parabéns! Você acertou o número mágico em ${tentativas} tentativas.`;
+        document.getElementById('chuteDiv').style.display = 'none';
+      } else if (chute > numeroMagico) {
+        document.getElementById('resultado').innerText = "O número mágico é menor.";
+      } else {
+        document.getElementById('resultado').innerText = "O número mágico é maior.";
+      }
+    }
+  </script>
+</body>
+</html>
