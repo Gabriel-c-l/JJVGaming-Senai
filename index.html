@@ -1,65 +1,29 @@
-<!--
-    Fazer um jogo 
-
-    -1 o jogo pvp eu boto um numero e a pessoa ao meu lado adivinha 
-    -2 a maquina inventa um numero e a pessoa tenta adivinhar 
-    -erros o site deve mostrar o quão perto do numero correto ele esta e quantas tentativas ele fez 
-    -acerto aparecer na tela ele conseguiu acertar o numero eeee 
--->
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JJVGaming</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Número Mágico - Jogo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <header>
-            <p>JJVGaming apresenta</p>
-            <h1>Joguinho da adivinhação</h1>
-        </header>
+  <div id="container">
+    <h1>Número Mágico</h1>
+    <div id="modoSelecao">
+      <button onclick="selecionarModo('pvp')">PvP</button>
+      <button onclick="selecionarModo('pve')">PvE</button>
+    </div>
+    <div id="inputNumero" style="display: none;">
+      <input type="number" id="numeroInput" placeholder="Digite o número mágico">
+      <button onclick="iniciarJogo()">Iniciar Jogo</button>
+    </div>
+    <div id="chuteDiv" style="display: none;">
+      <input type="number" id="chuteInput" placeholder="Faça seu chute">
+      <button onclick="verificarChute()">Chutar</button>
+    </div>
+    <p id="resultado"></p>
+  </div>
 
-        <section class="modo">
-            <select name="" id="">
-                <option value="">PvP</option>
-                <option value="">PvE</option>
-            </select>
-        </section>
-
-        <section class="dificuldade">
-            <select name="" id="">
-                <option value="">facil</option>
-                <option value="">medio</option>
-                <option value="">dificil</option>
-            </select>
-        </section>
-
-        <section class="pvp">
-            <h2>PVP</h2>
-            <div class="p1PVP">
-                <label for="numberP1PVP">Adicionar numero</label>
-                <input type="text" id="numberP1PVP">
-                <button onclick="add()">Adicionar</button>
-            </div>
-            <div class="p2PVP">
-                <label for="numberP2PVP">Chute um numero</label>
-                <input type="text" id="numberP2PVP">
-            </div>
-        </section>
-
-        <section class="pve">
-            <h2>PVE</h2>
-            <div class="p1PVE">
-                <label for="numberP1PVE">Chute um numero</label>
-                <input type="text" id="numberP1PVE">
-            </div>
-        </section>
-        <section class="respostas">
-            <p class="perto"></p>
-            <p class="acertou"></p>
-        </section>
-    </main>
+  <script src="./index.js"></script>
 </body>
 </html>
