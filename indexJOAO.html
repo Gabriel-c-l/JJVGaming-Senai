@@ -60,42 +60,33 @@
       <button onclick="selecionarModo('pvp')">PvP</button>
       <button onclick="selecionarModo('pve')">PvE</button>
     </div>
-    <div id="dificuldadeSelecao" style="display: none;">
-      <button onclick="selecionarDificuldade('facil')">Fácil</button>
-      <button onclick="selecionarDificuldade('medio')">Médio</button>
-      <button onclick="selecionarDificuldade('dificil')">Difícil</button>
-    </div>
-    <div id="inputNumero" style="display: none;">
-      <input type="number" id="numeroInput" placeholder="Digite o número mágico">
+    <div id="inputNumeroJogador1" style="display: none;">
+      <p>Jogador 1, informe o número mágico:</p>
+      <input type="number" id="numeroInputJogador1" placeholder="Digite o número mágico">
       <button onclick="iniciarJogo()">Iniciar Jogo</button>
     </div>
-    <div id="chuteDiv" style="display: none;">
-      <input type="number" id="chuteInput" placeholder="Faça seu chute">
-      <button onclick="verificarChute()">Chutar</button>
+    <div id="inputNumeroJogador2" style="display: none;">
+      <p>Jogador 2, faça seu chute:</p>
+      <input type="number" id="chuteInputJogador2" placeholder="Faça seu chute">
+      <button onclick="verificarChuteJogador2()">Chutar</button>
     </div>
-    <p id="resultado"></p>
+    <div id="chuteDiv" style="display: none;">
+      <p>Resultado:</p>
+      <p id="resultado"></p>
+    </div>
   </div>
 
   <script>
-    let numeroMagico;
+    let numeroMagicoJogador1;
+    let numeroMagicoJogador2;
     let tentativas;
 
     function selecionarModo(modo) {
-      if (modo === 'pve') {
+      if (modo === 'pvp') {
         document.getElementById('modoSelecao').style.display = 'none';
-        document.getElementById('dificuldadeSelecao').style.display = 'block';
-      } else if (modo === 'pvp') {
+        document.getElementById('inputNumeroJogador1').style.display = 'block';
+      } else if (modo === 'pve') {
         iniciarJogoPvE();
-      }
-    }
-
-    function selecionarDificuldade(dificuldade) {
-      if (dificuldade === 'facil') {
-        iniciarJogoPvE(50); // Limite do número mágico para dificuldade fácil: 1-50
-      } else if (dificuldade === 'medio') {
-        iniciarJogoPvE(100); // Limite do número mágico para dificuldade média: 1-100
-      } else if (dificuldade === 'dificil') {
-        iniciarJogoPvE(200); // Limite do número mágico para dificuldade difícil: 1-200
       }
     }
 
@@ -104,28 +95,26 @@
       tentativas = 0;
 
       document.getElementById('modoSelecao').style.display = 'none';
-      document.getElementById('dificuldadeSelecao').style.display = 'none'; // Esconde a seleção de dificuldade após escolher PvE
       document.getElementById('chuteDiv').style.display = 'block';
     }
 
     function iniciarJogo() {
-      numeroMagico = parseInt(document.getElementById('numeroInput').value);
+      numeroMagicoJogador1 = parseInt(document.getElementById('numeroInputJogador1').value);
       tentativas = 0;
 
-      document.getElementById('inputNumero').style.display = 'none';
-      document.getElementById('chuteDiv').style.display = 'block';
+      document.getElementById('inputNumeroJogador1').style.display = 'none';
+      document.getElementById('inputNumeroJogador2').style.display = 'block';
     }
 
-    function verificarChute() {
-      const chute = parseInt(document.getElementById('chuteInput').value);
-      document.getElementById('chuteInput').focus()
-      document.getElementById('chuteInput').value = '';
+    function verificarChuteJogador2() {
+      const chuteJogador2 = parseInt(document.getElementById('chuteInputJogador2').value);
+      document.getElementById('chuteInputJogador2').value = '';
       tentativas++;
 
-      if (chute === numeroMagico) {
-        document.getElementById('resultado').innerText = `Parabéns! Você acertou o número mágico em ${tentativas} tentativas.`;
-        document.getElementById('chuteDiv').style.display = 'none';
-      } else if (chute > numeroMagico) {
+      if (chuteJogador2 === numeroMagicoJogador1) {
+        document.getElementById('resultado').innerText = `Parabéns! Jogador 2 acertou o número mágico em ${tentativas} tentativas.`;
+        document.getElementById('inputNumeroJogador2').style.display = 'none';
+      } else if (chuteJogador2 > numeroMagicoJogador1) {
         document.getElementById('resultado').innerText = "O número mágico é menor.";
       } else {
         document.getElementById('resultado').innerText = "O número mágico é maior.";
