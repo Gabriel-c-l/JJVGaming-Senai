@@ -7,13 +7,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button class="noturno" id="modoNoturnoBtn" onclick="toggleModoNoturno()">🌛</button>
    <!-- 
     colocar modo noturno 
     adicionar as mudanças do vitao 
-    adicionar dificuldade
+    adicionar dificuldade no script
+    
    --> 
   <div id="container">
     <h1>Número Mágico</h1>
+    <div id="dificuldade">
+        <label for="difcult">Selecione a dificuldade</label>
+        <select name="difcult" id="">
+            <option value="facil"></option>
+            <option value="medio"></option>
+            <option value="dificil"></option>
+        </select>
+    </div>
     <div id="modoSelecao">
       <button onclick="selecionarModo('pvp')">PvP</button>
       <button onclick="selecionarModo('pve')">PvE</button>

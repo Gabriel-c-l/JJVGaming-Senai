@@ -47,3 +47,15 @@ function verificarChute() {
     document.getElementById('resultado').innerText = "O número mágico é maior.";
     }
 }
+
+function toggleModoNoturno() {
+    var modoNoturnoBtn = document.getElementById("modoNoturnoBtn");
+    var emojiAtual = modoNoturnoBtn.textContent;
+    if (emojiAtual === "🌛") {
+      modoNoturnoBtn.textContent = "☀️"; // Transforma em emoji de sol
+      // Adicione aqui as ações para ativar o modo noturno
+    } else {
+      modoNoturnoBtn.textContent = "🌛"; // Transforma de volta em emoji de lua
+      // Adicione aqui as ações para desativar o modo noturno
+    }
+}
